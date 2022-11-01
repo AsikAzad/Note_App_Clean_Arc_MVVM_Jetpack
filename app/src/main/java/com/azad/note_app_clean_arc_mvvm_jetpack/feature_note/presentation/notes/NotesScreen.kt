@@ -23,6 +23,7 @@ import com.azad.note_app_clean_arc_mvvm_jetpack.feature_note.presentation.util.S
 import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+@ExperimentalAnimationApi
 @Composable
 fun NotesScreen(
     navController: NavController,
@@ -59,7 +60,8 @@ fun NotesScreen(
                     text = "Your Note",
                     style = MaterialTheme.typography.h4
                 )
-                IconButton(onClick = {
+                IconButton(
+                    onClick = {
                         viewModel.onEvent(NotesEvent.ToggleOrderSection)
                     }
                 ) {

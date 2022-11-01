@@ -9,7 +9,7 @@ import com.azad.note_app_clean_arc_mvvm_jetpack.feature_note.domain.util.OrderTy
 
 @Composable
 fun OrderSection(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     noteOrder: NoteOrder = NoteOrder.Date(OrderType.Descending),
     onOrderChange: (NoteOrder) -> Unit
 ) {
@@ -21,16 +21,12 @@ fun OrderSection(
                 text = "Title",
                 selected = noteOrder is NoteOrder.Title,
                 onSelect = { onOrderChange(NoteOrder.Title(noteOrder.orderType)) })
-        }
-        Spacer(modifier = Modifier.width(8.dp))
-        Row(modifier = Modifier.fillMaxWidth()) {
+            Spacer(modifier = Modifier.width(8.dp))
             DefaultRadioButton(
                 text = "Date",
                 selected = noteOrder is NoteOrder.Date,
                 onSelect = { onOrderChange(NoteOrder.Date(noteOrder.orderType)) })
-        }
-        Spacer(modifier = Modifier.width(8.dp))
-        Row(modifier = Modifier.fillMaxWidth()) {
+            Spacer(modifier = Modifier.width(8.dp))
             DefaultRadioButton(
                 text = "Color",
                 selected = noteOrder is NoteOrder.Color,
@@ -42,9 +38,7 @@ fun OrderSection(
                 text = "Ascending",
                 selected = noteOrder.orderType is OrderType.Ascending,
                 onSelect = { onOrderChange(noteOrder.copy(OrderType.Ascending)) })
-        }
-        Spacer(modifier = Modifier.width(8.dp))
-        Row(modifier = Modifier.fillMaxWidth()) {
+            Spacer(modifier = Modifier.width(8.dp))
             DefaultRadioButton(
                 text = "Descending",
                 selected = noteOrder.orderType is OrderType.Descending,

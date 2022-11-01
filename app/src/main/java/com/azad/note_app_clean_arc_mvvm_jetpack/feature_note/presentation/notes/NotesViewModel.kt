@@ -33,11 +33,11 @@ class NotesViewModel @Inject constructor(
     fun onEvent(event: NotesEvent){
         when(event){
             is NotesEvent.Order -> {
-
                 //Check for same sort call
-                if (state.value.noteOrder::class == event.noteOrder::class && state.value.noteOrder.orderType == event.noteOrder.orderType) return
-
-
+                if (state.value.noteOrder::class == event.noteOrder::class && state.value.noteOrder.orderType == event.noteOrder.orderType) {
+                    return
+                }
+                getNotes(event.noteOrder)
             }
             is NotesEvent.DeleteNote -> {
                 viewModelScope.launch {
