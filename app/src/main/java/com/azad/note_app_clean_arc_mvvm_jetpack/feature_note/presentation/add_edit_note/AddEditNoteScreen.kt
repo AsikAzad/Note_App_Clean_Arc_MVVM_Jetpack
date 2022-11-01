@@ -70,9 +70,13 @@ fun AddEditNoteScreen(
                 onClick = { 
                     viewModel.onEvent(AddEditNoteEvent.SaveNote)
                 },
-                backgroundColor = MaterialTheme.colors.primary
+                backgroundColor = MaterialTheme.colors.surface
             ) {
-                androidx.compose.material.Icon(imageVector = Icons.Default.Save, contentDescription = "Save note")
+                Icon(
+                    imageVector = Icons.Default.Save,
+                    contentDescription = "Save note",
+                    tint = MaterialTheme.colors.background
+                )
             }
         },
         scaffoldState = scaffoldState

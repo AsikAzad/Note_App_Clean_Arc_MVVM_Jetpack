@@ -1,19 +1,27 @@
 package com.azad.note_app_clean_arc_mvvm_jetpack.feature_note.presentation.notes
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import androidx.compose.animation.*
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
+import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Sort
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -34,14 +42,16 @@ fun NotesScreen(
     val scope = rememberCoroutineScope()
 
    Scaffold(
+//       backgroundColor = Color.White,
        floatingActionButton = {
            FloatingActionButton(
                onClick = {
                     navController.navigate(Screen.AddEditNoteScreen.route)
                },
-               backgroundColor = MaterialTheme.colors.primary
+               backgroundColor = colors.surface
            ){
-                Icon(imageVector = Icons.Default.Add, contentDescription = "Add Note")
+                Icon(imageVector = Icons.Default.Add, contentDescription = "Add Note",
+                tint = colors.background)
            }
        },
        scaffoldState = scaffoldState
@@ -49,16 +59,20 @@ fun NotesScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp)
+//                .padding(16.dp)
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(colors.background)
+                    .padding(vertical = 8.dp, horizontal = 8.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
-                    text = "Your Note",
-                    style = MaterialTheme.typography.h4
+                    text = "My Notes",
+                    style = MaterialTheme.typography.h4,
+                    color = colors.surface
                 )
                 IconButton(
                     onClick = {
@@ -67,7 +81,8 @@ fun NotesScreen(
                 ) {
                     Icon(
                         imageVector = Icons.Default.Sort,
-                        contentDescription = "Sort"
+                        contentDescription = "Sort",
+                        tint = colors.surface
                     )
                 }
             }
@@ -79,7 +94,8 @@ fun NotesScreen(
                 OrderSection(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 16.dp),
+                        .padding(bottom = 16.dp)
+                        .background(colors.background),
                     noteOrder = state.noteOrder,
                     onOrderChange = {
                         viewModel.onEvent(NotesEvent.Order(it))
