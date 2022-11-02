@@ -7,9 +7,8 @@ import com.azad.note_app_clean_arc_mvvm_jetpack.feature_note.domain.util.OrderTy
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class GetNotes(
-    private val repo: NoteRepo
-) {
+class GetNotes(private val repo: NoteRepo) {
+
     operator fun invoke(noteOrder: NoteOrder = NoteOrder.Date(OrderType.Descending)): Flow<List<Note>>{
         return repo.getNotes().map { notes ->
             when(noteOrder.orderType){
