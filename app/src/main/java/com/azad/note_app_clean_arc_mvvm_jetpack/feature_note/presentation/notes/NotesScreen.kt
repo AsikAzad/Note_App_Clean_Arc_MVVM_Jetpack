@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -28,6 +29,7 @@ import androidx.navigation.NavController
 import com.azad.note_app_clean_arc_mvvm_jetpack.feature_note.presentation.notes.components.NoteItem
 import com.azad.note_app_clean_arc_mvvm_jetpack.feature_note.presentation.notes.components.OrderSection
 import com.azad.note_app_clean_arc_mvvm_jetpack.feature_note.presentation.util.Screen
+import com.azad.note_app_clean_arc_mvvm_jetpack.util.TestTags
 import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -95,7 +97,8 @@ fun NotesScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(bottom = 16.dp)
-                        .background(colors.background),
+                        .background(colors.background)
+                        .testTag(TestTags.ORDER_SECTION),
                     noteOrder = state.noteOrder,
                     onOrderChange = {
                         viewModel.onEvent(NotesEvent.Order(it))
