@@ -17,11 +17,13 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.clipPath
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 import com.azad.note_app_clean_arc_mvvm_jetpack.feature_note.domain.model.Note
+import com.azad.note_app_clean_arc_mvvm_jetpack.util.TestTags
 
 @Composable
 fun NoteItem(
@@ -31,7 +33,7 @@ fun NoteItem(
     cutCornerSize: Dp = 30.dp,
     onDeleteClick: () -> Unit
 ) {
-    Box(modifier = modifier){
+    Box(modifier = modifier.testTag(TestTags.NOTE_ITEM)){
         //Draw corner cut area
         Canvas(modifier = Modifier.matchParentSize()){
             val clipPath = Path().apply {

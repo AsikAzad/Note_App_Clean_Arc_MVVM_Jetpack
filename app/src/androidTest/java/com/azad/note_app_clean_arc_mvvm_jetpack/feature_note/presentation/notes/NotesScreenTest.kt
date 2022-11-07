@@ -1,13 +1,12 @@
 package com.azad.note_app_clean_arc_mvvm_jetpack.feature_note.presentation.notes
 
+import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.test.core.app.ApplicationProvider
 import com.azad.note_app_clean_arc_mvvm_jetpack.di.AppModule
 import com.azad.note_app_clean_arc_mvvm_jetpack.feature_note.presentation.MainActivity
 import com.azad.note_app_clean_arc_mvvm_jetpack.feature_note.presentation.util.Screen
@@ -16,9 +15,6 @@ import com.azad.note_app_clean_arc_mvvm_jetpack.util.TestTags
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -39,19 +35,19 @@ class NotesScreenTest{
     @Before
     fun setUp(){
         hiltRule.inject()
-//        composeRule.setContent {
-//            Note_App_Clean_Arc_MVVM_JetpackTheme {
-//                val navController = rememberNavController()
-//                NavHost(
-//                    navController = navController,
-//                    startDestination = Screen.NotesScreen.route
-//                ){
-//                    composable(route = Screen.NotesScreen.route){
-//                        NotesScreen(navController = navController)
-//                    }
-//                }
-//            }
-//        }
+        composeRule.activity.setContent {
+            Note_App_Clean_Arc_MVVM_JetpackTheme {
+                val navController = rememberNavController()
+                NavHost(
+                    navController = navController,
+                    startDestination = Screen.NotesScreen.route
+                ){
+                    composable(route = Screen.NotesScreen.route){
+                        NotesScreen(navController = navController)
+                    }
+                }
+            }
+        }
     }
 
     @Test
@@ -140,8 +136,4 @@ class NotesScreenTest{
         //Check for desc selection not selected
         composeRule.onNodeWithTag(TestTags.DESC_RADIO_BUTTON).assertIsNotSelected()
     }
-
-
-
-
 }

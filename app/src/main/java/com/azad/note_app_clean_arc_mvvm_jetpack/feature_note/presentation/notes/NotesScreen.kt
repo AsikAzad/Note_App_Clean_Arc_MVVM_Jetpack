@@ -52,7 +52,7 @@ fun NotesScreen(
                },
                backgroundColor = colors.surface
            ){
-                Icon(imageVector = Icons.Default.Add, contentDescription = "Add Note",
+                Icon(imageVector = Icons.Default.Add, contentDescription = "Add note",
                 tint = colors.background)
            }
        },

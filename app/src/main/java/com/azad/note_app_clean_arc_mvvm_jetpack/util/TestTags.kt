@@ -7,4 +7,8 @@ object TestTags{
     const val COLOR_RADIO_BUTTON = "COLOR_RADIO_BUTTON"
     const val ASC_RADIO_BUTTON = "ASC_RADIO_BUTTON"
     const val DESC_RADIO_BUTTON = "DESC_RADIO_BUTTON"
+    const val TITLE_TEXT_FIELD = "TITLE_TEXT_FIELD"
+    const val CONTENT_TEXT_FIELD = "CONTENT_TEXT_FIELD"
+    const val NOTE_ITEM = "NOTE_ITEM"
+
 }
