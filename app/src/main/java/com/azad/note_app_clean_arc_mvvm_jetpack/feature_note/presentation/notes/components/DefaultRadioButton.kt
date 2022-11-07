@@ -4,6 +4,7 @@ import android.speech.tts.TextToSpeech
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.RadioButton
 import androidx.compose.material.RadioButtonDefaults
@@ -11,9 +12,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
+import com.azad.note_app_clean_arc_mvvm_jetpack.feature_note.domain.util.OrderType
 
 @Composable
 fun DefaultRadioButton (
@@ -33,9 +36,16 @@ fun DefaultRadioButton (
                 selectedColor = MaterialTheme.colors.onBackground,
                 unselectedColor = MaterialTheme.colors.surface
             ),
-            modifier = Modifier.semantics {
+            modifier = Modifier
+                .selectable(                                //For UI testing
+                    selected = selected,
+                    enabled = true,
+                    role = Role.RadioButton,
+                    onClick = onSelect
+                )
+                .semantics {
                 contentDescription = text
-            }
+                }
         )
         Spacer(modifier = Modifier.width(8.dp))
         Text(

@@ -68,13 +68,13 @@ class NotesScreenTest{
         composeRule.onNodeWithContentDescription("Sort").performClick()
 
         //Check for title selection not selected initially
-        composeRule.onNodeWithTag(TestTags.TITLE_RADIO_BUTTON).assertIsNotSelected()
+        composeRule.onNodeWithContentDescription("Title").assertIsNotSelected()
 
         //Click title selection
-        composeRule.onNodeWithTag(TestTags.TITLE_RADIO_BUTTON).performClick()
+        composeRule.onNodeWithContentDescription("Title").performClick()
 
         //Check for title selection is selected
-        composeRule.onNodeWithTag(TestTags.TITLE_RADIO_BUTTON).assertIsSelected()
+        composeRule.onNodeWithContentDescription("Title").assertIsSelected()
     }
 
     @Test
@@ -83,13 +83,13 @@ class NotesScreenTest{
         composeRule.onNodeWithContentDescription("Sort").performClick()
 
         //Check for color selection not selected initially
-        composeRule.onNodeWithTag(TestTags.COLOR_RADIO_BUTTON).assertIsNotSelected()
+        composeRule.onNodeWithContentDescription("Color").assertIsNotSelected()
 
         //Click color selection
-        composeRule.onNodeWithTag(TestTags.COLOR_RADIO_BUTTON).performClick()
+        composeRule.onNodeWithContentDescription("Color").performClick()
 
         //Check for color selection is selected
-        composeRule.onNodeWithTag(TestTags.COLOR_RADIO_BUTTON).assertIsSelected()
+        composeRule.onNodeWithContentDescription("Color").assertIsSelected()
     }
 
     @Test
@@ -98,13 +98,13 @@ class NotesScreenTest{
         composeRule.onNodeWithContentDescription("Sort").performClick()
 
         //Check for asc selection not selected initially
-        composeRule.onNodeWithTag(TestTags.ASC_RADIO_BUTTON).assertIsNotSelected()
+        composeRule.onNodeWithContentDescription("Ascending").assertIsNotSelected()
 
         //Click asc selection
-        composeRule.onNodeWithTag(TestTags.ASC_RADIO_BUTTON).performClick()
+        composeRule.onNodeWithContentDescription("Ascending").performClick()
 
         //Check for asc selection is selected
-        composeRule.onNodeWithTag(TestTags.ASC_RADIO_BUTTON).assertIsSelected()
+        composeRule.onNodeWithContentDescription("Ascending").assertIsSelected()
     }
 
     @Test
@@ -113,13 +113,13 @@ class NotesScreenTest{
         composeRule.onNodeWithContentDescription("Sort").performClick()
 
         //Check for date selection already selected
-        composeRule.onNodeWithTag(TestTags.DATE_RADIO_BUTTON).assertIsSelected()
+        composeRule.onNodeWithContentDescription("Date").assertIsSelected()
 
         //Click date selection
-        composeRule.onNodeWithTag(TestTags.DATE_RADIO_BUTTON).performClick()
+        composeRule.onNodeWithContentDescription("Date").performClick()
 
         //Check for date selection still selected
-        composeRule.onNodeWithTag(TestTags.DATE_RADIO_BUTTON).assertIsSelected()
+        composeRule.onNodeWithContentDescription("Date").assertIsSelected()
     }
 
     @Test
@@ -128,12 +128,12 @@ class NotesScreenTest{
         composeRule.onNodeWithContentDescription("Sort").performClick()
 
         //Check for desc selection already selected
-        composeRule.onNodeWithTag(TestTags.DESC_RADIO_BUTTON).assertIsSelected()
+        composeRule.onNodeWithContentDescription("Descending").assertIsSelected()
 
         //Click asc selection
-        composeRule.onNodeWithTag(TestTags.ASC_RADIO_BUTTON).performClick()
+        composeRule.onNodeWithContentDescription("Ascending").performClick()
 
         //Check for desc selection not selected
-        composeRule.onNodeWithTag(TestTags.DESC_RADIO_BUTTON).assertIsNotSelected()
+        composeRule.onNodeWithContentDescription("Descending").assertIsNotSelected()
     }
 }

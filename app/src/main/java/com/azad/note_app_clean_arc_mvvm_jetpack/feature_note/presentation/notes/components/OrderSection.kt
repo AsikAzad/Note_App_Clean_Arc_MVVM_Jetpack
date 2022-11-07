@@ -22,41 +22,20 @@ fun OrderSection(
     ){
         Row(modifier = Modifier.fillMaxWidth()) {
             DefaultRadioButton(
-                modifier = Modifier
-                    .testTag(TestTags.TITLE_RADIO_BUTTON)       //For UI testing
-                    .selectable(                                //For UI testing
-                        selected = noteOrder is NoteOrder.Title,
-                        enabled = true,
-                        role = Role.RadioButton,
-                        onClick = { onOrderChange(NoteOrder.Title(noteOrder.orderType)) }
-                    ),
+                modifier = Modifier,
                 text = "Title",
                 selected = noteOrder is NoteOrder.Title,
                 onSelect = { onOrderChange(NoteOrder.Title(noteOrder.orderType)) }
             )
             Spacer(modifier = Modifier.width(8.dp))
             DefaultRadioButton(
-                modifier = Modifier
-                    .testTag(TestTags.DATE_RADIO_BUTTON)        //For UI testing
-                    .selectable(                                //For UI testing
-                    selected = noteOrder is NoteOrder.Date,
-                    enabled = true,
-                    role = Role.RadioButton,
-                    onClick = { onOrderChange(NoteOrder.Date(noteOrder.orderType)) }
-                ),
+                modifier = Modifier,
                 text = "Date",
                 selected = noteOrder is NoteOrder.Date,
                 onSelect = { onOrderChange(NoteOrder.Date(noteOrder.orderType)) })
             Spacer(modifier = Modifier.width(8.dp))
             DefaultRadioButton(
-                modifier = Modifier
-                    .testTag(TestTags.COLOR_RADIO_BUTTON)       //For UI testing
-                    .selectable(                                //For UI testing
-                        selected = noteOrder is NoteOrder.Color,
-                        enabled = true,
-                        role = Role.RadioButton,
-                        onClick = { onOrderChange(NoteOrder.Color(noteOrder.orderType)) }
-                    ),
+                modifier = Modifier,
                 text = "Color",
                 selected = noteOrder is NoteOrder.Color,
                 onSelect = { onOrderChange(NoteOrder.Color(noteOrder.orderType)) })
@@ -64,27 +43,13 @@ fun OrderSection(
         Spacer(modifier = Modifier.width(16.dp))
         Row(modifier = Modifier.fillMaxWidth()) {
             DefaultRadioButton(
-                modifier = Modifier
-                    .testTag(TestTags.ASC_RADIO_BUTTON)         //For UI testing
-                    .selectable(                                //For UI testing
-                        selected = noteOrder.orderType is OrderType.Ascending,
-                        enabled = true,
-                        role = Role.RadioButton,
-                        onClick = { onOrderChange(noteOrder.copy(OrderType.Ascending)) }
-                    ),
+                modifier = Modifier,
                 text = "Ascending",
                 selected = noteOrder.orderType is OrderType.Ascending,
                 onSelect = { onOrderChange(noteOrder.copy(OrderType.Ascending)) })
             Spacer(modifier = Modifier.width(8.dp))
             DefaultRadioButton(
-                modifier = Modifier
-                    .testTag(TestTags.DESC_RADIO_BUTTON)
-                    .selectable(                                //For UI testing
-                        selected = noteOrder.orderType is OrderType.Descending,
-                        enabled = true,
-                        role = Role.RadioButton,
-                        onClick = { onOrderChange(noteOrder.copy(OrderType.Descending)) }
-                    ),
+                modifier = Modifier,
                 text = "Descending",
                 selected = noteOrder.orderType is OrderType.Descending,
                 onSelect = { onOrderChange(noteOrder.copy(OrderType.Descending)) })
