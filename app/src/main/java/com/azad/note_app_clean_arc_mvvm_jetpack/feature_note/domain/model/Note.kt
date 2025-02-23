@@ -6,11 +6,12 @@ import com.azad.note_app_clean_arc_mvvm_jetpack.ui.theme.*
 
 @Entity
 data class Note(
+    @PrimaryKey
+    val id: Int? = null,
     val title: String,
     val content: String,
     val timestamp: Long,
-    val color: Int,
-    @PrimaryKey val id: Int? = null
+    val color: Int
 ){
     companion object{
         val noteColors = listOf(RedOrange, LightGreen, Violet, BabyBlue, RedPink)
